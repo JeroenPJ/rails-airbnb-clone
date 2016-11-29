@@ -3,6 +3,6 @@
 
 <div>
   <% @motorcycles.each do |motorcycle| %>
-  <p><%= link_to motorcycle.name %></p>
+  <p><%= link_to motorcycle.name, motorcycle_path(motorcycle) %></p>
   <% end %>
 </div>
