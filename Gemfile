@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 # Login / signup / authentication gem
 gem 'devise'
+gem 'faker'
 
 group :development, :test do
   gem 'binding_of_caller'

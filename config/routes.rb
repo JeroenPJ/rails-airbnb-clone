@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'motorcycles', to: 'motorcycles#index'
+
+  get 'motorcycles/show', to: 'motorcycles#show'
+
 devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
