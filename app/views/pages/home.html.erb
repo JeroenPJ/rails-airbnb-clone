@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h1>OpenRoad</h1>
-        <h3>Rent motorcycles anywhere.</h3>
+        <h3>Rent motorcycles anywhere,<br>anytime you want.</h3>
       </div>
     </div>
 
@@ -15,11 +15,19 @@
   </div>
 </div>
 
-<form action="search" class="search-form form-inline" method="get">
-          <input type="text" name="location" placeholder="location" class="input-lg form-control">
-          <input type="text" name="daterange" placeholder="renting period" class="input-lg form-control datepicker">
-          <input type="submit" value="Search" class="btn btn-primary btn-lg">
-        </form>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form action="search" class="search-form form-inline" method="get">
+        <div id="locationField" class="border-radius-left">
+          <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text"></input>
+        </div>
+        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker">
+        <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
+      </form>
+    </div>
+  </div>
+</div>
 
 <div class="wrapper" id="wrapper-featured">
   <div class="container">
@@ -37,7 +45,9 @@
     <h2>About OpenRoad:</h2>
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-        <p>OpenRoad is a place where you can rent motorcycles. We like to think of it as a passionate community. Discover which bikes are around you, or the place you're travelling to, and book them for whatever time you like.</p>
+        <p>OpenRoad is a place where you can rent motorcycles. We like to think of it as a passionate community. Discover which bikes are around you, or the place you're travelling to, and book them for whatever time you like.
+        <br><br>
+        OpenRoad was created by Arthur Garaud, Sebastiaan van Kuyk and Jeroen Jagt.</p>
       </div>
     </div>
   </div>
