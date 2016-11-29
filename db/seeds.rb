@@ -20,6 +20,5 @@ Motorcycle.destroy_all
     address: Faker::Address.street_address,
     license_plate: Faker::Number.number(8),
     availability: true
-
   )
 end
