@@ -1,0 +1,80 @@
+.search-form {
+  position: relative;
+
+  margin: 50px auto;
+
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+  height: 60px;
+
+  input {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+
+    height: 100%;
+
+    box-sizing: border-box;
+
+    box-shadow: none;
+  }
+
+  .border-radius-left {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .border-radius-right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  input:focus {
+    box-shadow: none;
+  }
+
+  #locationField {
+    border-right: 1px solid #bbb;
+    height: 100%;
+    box-sizing: border-box;
+
+    width: 33%;
+
+    #autocomplete {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #daterange {
+    border-right: 1px solid #bbb;
+    width: 50%;
+  }
+
+  #search-submit {
+    width: 17%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+/* CSS FOR GOOGLE MAPS LOCATION AUTOCOMPLETE API */
+
+#locationField {
+  display: inline-block;
+}
+
+.pac-item {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 13px;
+}
+
+.pac-item-query {
+  font-size: 16px;
+}
