@@ -1,0 +1,30 @@
+/* CSS CODE FOR STEPS (HOW IT WORKS) */
+/* WRAPPER STYLE */
+#wrapper-steps {
+  background-color: #555;
+  color: #eee;
+}
+
+/* STEP CARD STYLE */
+.card-step {
+  border-radius: 50%;
+  width: 240px;
+  height: 240px;
+
+  padding: 10px;
+
+  background-color: #444;
+  color: #eee;
+  text-align: center;
+
+  h3 {
+    font-size: 48px;
+    line-height: 50px;
+  }
+
+  p {
+    padding-top: 25px;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+}
