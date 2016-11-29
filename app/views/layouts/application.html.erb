@@ -7,6 +7,7 @@
     <title>OpenRoad</title>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sumana" rel="stylesheet">
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -14,11 +15,11 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>

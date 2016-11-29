@@ -2,3 +2,15 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+#banner {
+  background-image: url("cover.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%), url("cover.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: center;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}

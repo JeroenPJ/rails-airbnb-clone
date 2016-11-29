@@ -1,8 +1,11 @@
 /* CSS CODE FOR STEPS (HOW IT WORKS) */
 /* WRAPPER STYLE */
 #wrapper-steps {
-  background-color: #555;
-  color: #eee;
+  background-color: #444;
+
+  h2 {
+    color: #eee;
+  }
 }
 
 /* STEP CARD STYLE */
@@ -13,7 +16,9 @@
 
   padding: 10px;
 
-  background-color: #444;
+  background-color: #333;
+  border: 1px solid #222;
+
   color: #eee;
   text-align: center;
 

@@ -1,4 +1,25 @@
 <div class="navbar">
-  <img src="logo.png" alt="" id="logo">
-  <img src="avatar.png" alt="" id="avatar">
+  <%= image_tag "logo.png", id: "logo" %>
+
+  <!-- Code for avatar + dropdown or, when not logged in, log in / sign up -->
+
+  <% if user_signed_in? %>
+    <!-- signed in user -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= image_tag "avatar.png", method: :delete, class: "dropdown-toggle", id: "avatar", data: { method: :delete, toggle: "dropdown" } %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Profile", user_registration_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path %></li>
+        </ul>
+      </div>
+    </div>
+  <% else %>
+    <!-- not signed in -->
+    <p>
+      <%= link_to "log in ", new_user_session_path %>
+      //
+      <%= link_to " sign up", new_user_registration_path %>
+    </p>
+  <% end %>
 </div>
