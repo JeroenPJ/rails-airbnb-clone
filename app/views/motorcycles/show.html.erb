@@ -1,4 +1,12 @@
-<h1>Motorcycles#show</h1>
-<p>Find me in app/views/motorcycles/show.html.erb</p>
+<h1><%= current_user.first_name%>'s <%=@motorcycle.brand%></h1>
 
+
+<p><%= @motorcycle.description %></p>
  <p><%= @motorcycle.name %></p>
+ <p><%= @motorcycle.brand %></p>
+<p><%= @motorcycle.model %></p>
+<p><%= @motorcycle.year %></p>
+<p><%= @motorcycle.price %></p>
+<p><%= @motorcycle.city %></p>
+<p><%= @motorcycle.address %></p>
+<p>Registration: <%= @motorcycle.license_plate %></p>

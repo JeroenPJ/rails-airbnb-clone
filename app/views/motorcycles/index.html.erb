@@ -1,8 +1,14 @@
-<h1>Motorcycles#index</h1>
-<p>Find me in app/views/motorcycles/index.html.erb</p>
+<h1>Motorcycles available in your area</h1>
+
 
 <div>
   <% @motorcycles.each do |motorcycle| %>
-  <p><%= link_to motorcycle.name, motorcycle_path(motorcycle) %></p>
+  <% if motorcycle.availability == true %>
+  <h2><%= link_to motorcycle.name, motorcycle_path(motorcycle) %></h2>
+  <p><%= motorcycle.model%> - <%=motorcycle.brand%></p>
+  <p><%= motorcycle.price%> </p>
+  <% else %>
+  <%= %>
+  <% end %>
   <% end %>
 </div>
