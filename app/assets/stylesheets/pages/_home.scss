@@ -2,3 +2,38 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+#banner {
+  background-image: url("cover.jpg");
+  background-image: url("cover.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: center;
+  background-position: center;
+  height: 60%;
+  width: 100%;
+  margin: 0;
+
+  text-align: right;
+
+  .container {
+    margin-top: 80px;
+  }
+
+  h1 {
+    font-family: 'Montserrat', 'Roboto', 'Arial', sans-serif;
+    font-size: 60px;
+    font-weight: lighter;
+    color: #444;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    font-family: 'Raleway';
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    color: #444;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
