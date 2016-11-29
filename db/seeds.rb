@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Motorcycle.destroy_all
+
+10.times do
+  motorcycle  = Motorcycle.create(
+    name: Faker::StarWars.quote,
+    user_id: 2,
+    brand: "Honda",
+    model: "CB750",
+    year: Faker::Number.between(1900, 2016),
+    city: 'Barcelona',
+    address: Faker::Address.street_address,
+    license_plate: Faker::Number.number(8),
+  )
+end
