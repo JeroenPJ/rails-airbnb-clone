@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
       <!-- signed in user -->
       <div class="dropdown">
-        <%= image_tag "avatar.png", class: "dropdown-toggle", id: "avatar", data: { toggle: "dropdown" } %>
+        <%= image_tag current_user.facebook_picture_url, class: "dropdown-toggle", id: "avatar", data: { toggle: "dropdown" } %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Profile", profiles_index_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
