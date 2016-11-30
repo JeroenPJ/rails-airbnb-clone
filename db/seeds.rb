@@ -9,8 +9,12 @@
 
 Motorcycle.destroy_all
 
+4.times do
+  User.create(name: "Jeroen Jagt", )
+end
+
 10.times do
-  motorcycle  = Motorcycle.create(
+  motorcycle = Motorcycle.new(
     name: Faker::StarWars.quote,
     user_id: 3,
     brand: "Honda",
@@ -21,4 +25,7 @@ Motorcycle.destroy_all
     license_plate: Faker::Number.number(8),
     availability: true
   )
+
+  p motorcycle.valid?
+  motorcycle.save
 end
