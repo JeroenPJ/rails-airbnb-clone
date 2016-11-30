@@ -14,9 +14,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = @motorcycle.reservation.build(reservation_params)
+    @reservation = @motorcycle.reservations.build(reservation_params)
     @reservation.user_id = current_user
     @reservation.save
+    redirect_to root_path
   end
 
   private
