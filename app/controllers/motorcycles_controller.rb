@@ -10,7 +10,17 @@ class MotorcyclesController < ApplicationController
 
   end
 
+  def new
+
+  end
+
 private
+
+  def motorcycle_params
+    params.require(:motorcycle).permit(:name, :brand, :model, :year, :city,
+                                       :address, :price, :description,
+                                       :license_plate, photos: [])
+  end
 
   def set_motorcycle
     @motorcycle = Motorcycle.find(params[:id])

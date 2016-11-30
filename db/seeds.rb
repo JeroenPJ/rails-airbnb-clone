@@ -9,10 +9,6 @@
 
 Motorcycle.destroy_all
 
-4.times do
-  User.create(name: "Jeroen Jagt", )
-end
-
 10.times do
   motorcycle = Motorcycle.new(
     name: Faker::StarWars.quote,
