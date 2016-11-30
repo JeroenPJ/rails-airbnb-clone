@@ -1,14 +1,31 @@
-<h1>Motorcycles available in your area</h1>
+<div class="container-fluid" id="container-index">
+  <div class="row">
+    <div class="col-xs-6">
+      <!-- List of motorcycles -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <!-- Filter controls -->
+            <p>Filter controls</p>
+          </div>
+        </div>
 
+        <div class="row">
+          <h3>Results</h3>
+          <% @motorcycles.each do |motorcycle| %>
+            <% if motorcycle.availability %>
+              <div class="col-xs-12 col-md-6">
+                <!-- Single motorcycle card -->
+                <%= render 'card_motorcycle' %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<div>
-  <% @motorcycles.each do |motorcycle| %>
-  <% if motorcycle.availability == true %>
-  <h2><%= link_to motorcycle.name, motorcycle_path(motorcycle) %></h2>
-  <p><%= motorcycle.model%> - <%=motorcycle.brand%></p>
-  <p><%= motorcycle.price%> </p>
-  <% else %>
-  <%= %>
-  <% end %>
-  <% end %>
+    <div class="col-xs-6">
+      <!-- Map -->
+    </div>
+  </div>
 </div>
