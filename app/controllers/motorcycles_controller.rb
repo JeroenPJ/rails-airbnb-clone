@@ -4,10 +4,6 @@ class MotorcyclesController < ApplicationController
 
   before_action :set_motorcycle, only: [:show]
 
-  def index
-    @motorcycles = Motorcycle.all
-  end
-
   def show
     @reservation = Reservation.new
   end
@@ -15,28 +11,25 @@ class MotorcyclesController < ApplicationController
   def new
   end
 
-  def availability
+  def index
     @available_motorcycles = []
-    @unavailable_motorcycles = []
-  end
-
-  def search
     location = params[:location]
     date = params[:daterange].split(" - ").map {|date| Date.strptime(date,"%m/%d/%Y")}
     @motorcycles = Motorcycle.where(city: location)
-    p @motorcycles
     @motorcycles.each do |motorcycle|
+    overlaps = false
       motorcycle.reservations.each do |reservation|
-        @motorcycles.remove(motorcycle) if conflict?(reservation, date)
-        #   @unavailable_motorcycles << motorcycle
+        overlaps = conflict?(reservation, date)
+        break if overlaps
       end
+      @available_motorcycles << motorcycle unless overlaps
     end
   end
 
-  def conflict?(availability_date, reservation_date)
-    !(Time.parse(availability_date.last)  <= Time.parse(reservation.first) ||
-      Time.parse(availability_date.first) >= Time.parse(reservation.last))
-  end
+ def conflict?(availability_date, reservation_date)
+ reservation_date.first.between?( availability_date.starting_date, availability_date.ending_date) ||
+ reservation_date.last.between?( availability_date.starting_date, availability_date.ending_date)
+ end
 
   private
 
