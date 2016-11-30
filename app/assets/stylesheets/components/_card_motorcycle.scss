@@ -1,0 +1,43 @@
+.card-motorcycle-wrapper {
+  padding: 15px;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.card-motorcycle {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .motorcycle-info-main {
+    font-size: 17px;
+    font-weight: normal;
+    color: #555;
+
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .motorcycle-info-secondary {
+    font-size: 15px;
+    color: #888;
+  }
+
+  .motorcycle-price {
+    padding-right: 10px;
+  }
+}

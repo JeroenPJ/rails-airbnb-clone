@@ -1,11 +1,15 @@
-<%= link_to motorcycle_path(motorcycle) do %>
-  <div class="card-motorcycle">
-    <% if motorcycle.photos.empty? %>
-    <%= cl_image_tag("default-img_hn54at", width: 300, height: 200, crop: :fill) %>
-  <% else %>
-    <%= cl_image_tag(motorcycle.photos[0].path, width: 300, height: 200, crop: :fill) %>
-    <%end%>
-    <h2 class="motorcycle-name"><%= motorcycle.name %></h2>
-    <h3 class="motorcycle-price"><%= motorcycle.price %></h3>
-  </div>
-<% end %>
+<div class="card-motorcycle-wrapper">
+  <%= link_to motorcycle_path(motorcycle) do %>
+    <div class="card-motorcycle">
+      <% if motorcycle.photos.empty? %>
+        <%= cl_image_tag("default-img_hn54at", width: 300, height: 200, crop: :fill) %>
+      <% else %>
+        <%= cl_image_tag(motorcycle.photos[0].path, width: 300, height: 200, crop: :fill) %>
+      <%end%>
+      <div class="motorcycle-info">
+        <p class="motorcycle-info-main"><strong>&#8364;<span class="motorcycle-price"><%= motorcycle.price %></span></strong><%= motorcycle.name %></p>
+        <p class="motorcycle-info-secondary">Model: <%= motorcycle.model %>, brand: <%= motorcycle.brand %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
