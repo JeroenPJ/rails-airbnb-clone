@@ -1,2 +1,80 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="jumbotron" id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>OpenRoad</h1>
+        <h3>Rent motorcycles anywhere,<br>anytime you want.</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- SEARCH FORM -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form action="search" class="search-form form-inline" method="get">
+        <div id="locationField" class="border-radius-left">
+          <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text"></input>
+        </div>
+        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker">
+        <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="wrapper-featured">
+  <div class="container">
+    <h2>Featured bikes:</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-4"></div>
+      <div class="col-xs-12 col-md-4"></div>
+      <div class="col-xs-12 col-md-4"></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="wrapper-about">
+  <div class="container">
+    <h2>About OpenRoad:</h2>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <p>OpenRoad is a place where you can rent motorcycles. We like to think of it as a passionate community. Discover which bikes are around you, or the place you're travelling to, and book them for whatever time you like.
+        <br><br>
+        OpenRoad was created by Arthur Garaud, Sebastiaan van Kuyk and Jeroen Jagt.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="wrapper-steps">
+  <div class="container">
+    <h2>How it works:</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <div class="card-step card-step-align-left">
+          <h3>1.</h3>
+          <p>Search for a location</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="card-step card-step-align-center">
+          <h3>2.</h3>
+          <p>Check out available motorcycles</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="card-step card-step-align-right">
+          <h3>3.</h3>
+          <p>Rent the bike you like!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
