@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profiles/index', to: 'profiles#index'
+
   resources :motorcycles
 
   devise_for :users,

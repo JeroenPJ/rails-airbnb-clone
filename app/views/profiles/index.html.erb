@@ -1,0 +1,22 @@
+
+<div class="container">
+<div class= 'profile-head'>
+<h1>My Profile</h1>
+
+<p><%= current_user.first_name%> <%= current_user.last_name%></p>
+
+
+</div>
+
+<h2> My Motorcycles </h2>
+<ul>
+<% current_user.motorcycles.each do |motorcycle| %>
+<li>
+<%= motorcycle.name%> | <%=motorcycle.brand%> | <%=motorcycle.model%>
+
+</li>
+<%end%>
+</ul>
+</div>
+
+
