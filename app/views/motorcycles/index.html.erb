@@ -1,6 +1,6 @@
 <div class="container-fluid" id="container-index">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-7">
       <!-- List of motorcycles -->
       <div class="container-fluid">
         <div class="row">
@@ -14,7 +14,7 @@
           <h3>Results</h3>
           <% @available_motorcycles.each do |motorcycle| %>
             <% if motorcycle.availability %>
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 no-padding">
                 <!-- Single motorcycle card -->
                 <%= render 'card_motorcycle', motorcycle: motorcycle %>
               </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <!-- Map -->
     </div>
   </div>
