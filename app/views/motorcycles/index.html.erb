@@ -16,13 +16,7 @@
             <% if motorcycle.availability %>
               <div class="col-xs-12 col-md-6">
                 <!-- Single motorcycle card -->
-                <%= link_to motorcycle_path(motorcycle) do %>
-                  <div class="card-motorcycle">
-                    <%= cl_image_tag(motorcycle.photos[0].path, width: 300, height: 200, crop: :fill) %>
-                    <h2 class="motorcycle-name"><%= motorcycle.name %></h2>
-                    <h3 class="motorcycle-price"><%= motorcycle.price %></h3>
-                  </div>
-                <% end %>
+                <%= render 'card_motorcycle' %>
               </div>
             <% end %>
           <% end %>
