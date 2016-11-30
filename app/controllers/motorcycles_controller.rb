@@ -1,5 +1,5 @@
 class MotorcyclesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_motorcycle, only: :show
 
   def index
@@ -7,7 +7,7 @@ class MotorcyclesController < ApplicationController
   end
 
   def show
-
+    @reservation = Reservation.new
   end
 
 private
