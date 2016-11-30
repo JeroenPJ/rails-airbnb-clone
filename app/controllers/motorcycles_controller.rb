@@ -30,6 +30,11 @@ class MotorcyclesController < ApplicationController
     # end
   end
 
+  def destroy
+    @motorcycle.destroy
+    redirect_to profiles_index_path
+  end
+
 private
 
   def motorcycle_params
