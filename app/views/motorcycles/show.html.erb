@@ -1,15 +1,27 @@
-<h1><%= @motorcycle.user.first_name%>'s <%=@motorcycle.brand%></h1>
+<div class="caroussel">
+  <% @motorcycle.photos.each do |photo| %>
+    <div class="caroussel-item">
+      <%= cl_image_tag photo.path %>
+    </div>
+  <% end %>
+</div>
 
-
-<p><%= @motorcycle.description %></p>
- <p><%= @motorcycle.name %></p>
- <p><%= @motorcycle.brand %></p>
-<p><%= @motorcycle.model %></p>
-<p><%= @motorcycle.year %></p>
-<p><%= @motorcycle.price %></p>
-<p><%= @motorcycle.city %></p>
-<p><%= @motorcycle.address %></p>
-<p>Registration: <%= @motorcycle.license_plate %></p>
-
-
-  <%= render 'reservations/form' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+      <h1><%= @motorcycle.name %></h1>
+      <h4>Owned by <%= @motorcycle.user.first_name %> <%= @motorcycle.user.last_name %></h4>
+      <p><%= @motorcycle.description %></p>
+      <p><%= @motorcycle.model %> | <%= @motorcycle.brand %> | Manufactured in <%= @motorcycle.year %></p>
+      <p>License plate: <%= @motorcycle.license_plate %></p>
+      <hr>
+      <p>Located at: <%= @motorcycle.address %>, <%= @motorcycle.city %></p>
+    </div>
+    <div class="col-xs-12 col-md-3">
+      <!-- Booking form -->
+      <%= render 'reservations/form' %>
+      <hr>
+      <p>Total price: &euro;<%= @motorcycle.price %></p>
+    </div>
+  </div>
+</div>
