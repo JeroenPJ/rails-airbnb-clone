@@ -12,7 +12,7 @@ Motorcycle.destroy_all
 10.times do
   motorcycle = Motorcycle.new(
     name: Faker::StarWars.quote,
-    user_id: 3,
+    user_id: 1,
     brand: "Honda",
     model: "CB750",
     year: Faker::Number.between(1900, 2016),

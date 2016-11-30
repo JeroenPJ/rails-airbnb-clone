@@ -14,14 +14,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = @motorcycle.reservation.build(review_params)
+    @reservation = @motorcycle.reservation.build(reservation_params)
     @reservation.user_id = current_user
     @reservation.save
   end
 
   private
 
-  def review_params
+  def reservation_params
     params.require(:reservation).permit(:starting_date, :ending_date, :overall_price)
   end
 
