@@ -11,9 +11,14 @@
     <% current_user.motorcycles.each do |motorcycle| %>
 
     <%= render 'motorcycles/card_motorcycle', motorcycle: motorcycle %>
+    <%= link_to 'Destroy', motorcycle, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end%>
 
   </div>
+  <div>
+    <%= link_to "Add new motorcycle", new_motorcycle_path %>
+    </div>
+
 
 
 
