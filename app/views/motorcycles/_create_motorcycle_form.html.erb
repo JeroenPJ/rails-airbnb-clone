@@ -1,0 +1,12 @@
+<%= simple_form_for @motorcycle do %>
+  <p>Motorcycle information</p>
+  <%= f.input :name, label: "Name" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.input :brand, label: "Brand" %>
+  <%= f.input :model, label: "Model" %>
+  <%= f.input :year, label: "Build year" %>
+  <%= f.input :photos, as: :attachinary %>
+  <hr>
+  <p>Pricing</p>
+  <%= f.input :price, label: "Price" %>
+<% end %>
