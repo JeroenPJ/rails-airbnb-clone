@@ -17,6 +17,7 @@ class MotorcyclesController < ApplicationController
 
   def create
     @motorcycle = current_user.motorcycles.build(motorcycle_params)
+    @motorcycle.availability = true
     @motorcycle.save
     redirect_to profiles_index_path
     # respond_to do |format|
