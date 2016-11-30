@@ -11,7 +11,23 @@ class MotorcyclesController < ApplicationController
   end
 
   def new
+    @motorcycle = Motorcycle.new
+  end
 
+
+  def create
+    @motorcycle = current_user.motorcycles.build(motorcycle_params)
+    @motorcycle.save
+    redirect_to profiles_index_path
+    # respond_to do |format|
+    #   if @motorcycle.save
+    #     format.html { redirect_to current_user, notice: 'Motorcycle was successfully added.' }
+    #     format.json { render :show, status: :created, location: current_user }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @motorcycle.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
 private

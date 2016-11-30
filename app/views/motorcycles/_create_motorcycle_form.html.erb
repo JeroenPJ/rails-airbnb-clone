@@ -1,4 +1,4 @@
-<%= simple_form_for @motorcycle do %>
+<%= simple_form_for @motorcycle do |f| %>
   <p>Motorcycle information</p>
   <%= f.input :name, label: "Name" %>
   <%= f.input :description, label: "Description" %>
@@ -9,4 +9,5 @@
   <hr>
   <p>Pricing</p>
   <%= f.input :price, label: "Price" %>
+  <%= f.button :submit %>
 <% end %>
