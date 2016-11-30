@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20161130101627) do
     t.boolean  "availability"
     t.integer  "price"
     t.text     "description"
+    t.string   "license_plate"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "license_plate"
     t.index ["user_id"], name: "index_motorcycles_on_user_id", using: :btree
   end
 
