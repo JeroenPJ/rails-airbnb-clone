@@ -3,6 +3,10 @@
 
 <p><%= @motorcycle.description %></p>
  <p><%= @motorcycle.name %></p>
+
+
+  <%= render 'reservations/form' %>
+
  <p><%= @motorcycle.brand %></p>
 <p><%= @motorcycle.model %></p>
 <p><%= @motorcycle.year %></p>
@@ -10,3 +14,4 @@
 <p><%= @motorcycle.city %></p>
 <p><%= @motorcycle.address %></p>
 <p>Registration: <%= @motorcycle.license_plate %></p>
+

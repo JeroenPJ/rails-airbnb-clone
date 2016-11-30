@@ -1,0 +1,6 @@
+<%= simple_form_for [@motorcycle, @reservation] do |f| %>
+  <%= f.input :starting_date, label: "Dates",  input_html: {value: params[:starting_date]} %>
+  <%= f.input :ending_date, input_html: {value: params[:ending_date]} %>
+  <%= f.input :overall_price %>
+  <%= f.submit "Book this motorcycle", class: "btn btn-primary" %>
+<% end %>
