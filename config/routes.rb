@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/index', to: 'profiles#index'
+  resources :profiles, only: :index
+
+  resources :reservations, only: :destroy, as: "remove_reservation"
 
   resources :motorcycles do
     resources :reservations, only: [:show, :new, :create]

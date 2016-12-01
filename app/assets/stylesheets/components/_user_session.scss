@@ -1,0 +1,118 @@
+#wrapper-user-session {
+  width: 100%;
+  height: 100%;
+}
+
+.full-page-img {
+
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 22%,rgba(255,255,255,1) 28%,rgba(255,255,255,0.7) 79%,rgba(255,255,255,0) 100%), url('http://res.cloudinary.com/dynwh1keuz/image/upload/c_scale,e_grayscale,w_1920/v1480597813/ooe1s8tcacz68o0l21lz.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: center;
+  background-position: center;
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -3 !important;
+
+  opacity: 0.4;
+}
+
+#container-user-session {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+
+  border: 1px solid #eee;
+
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px 100px;
+
+  hr {
+    border-color: rgb(153, 153, 153);
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+    border-radius: 2px;
+
+    color: #fff;
+    background-color: #999;
+
+    transition: all 0.2s;
+  }
+
+  a:hover {
+    text-transform: none !important;
+    color: #fff;
+    background-color: #777;
+  }
+
+  a[href="/users/auth/facebook"] {
+    background-color: #3b5998;
+  }
+
+  a[href="/users/auth/facebook"]:hover {
+    background-color: #324b81;
+  }
+
+  input {
+    height: 50px;
+    line-height: 50px;
+    color: #333;
+
+    box-shadow: none;
+    border-color: #999;
+    padding: 0 10px;
+
+    transition: all 0.2s;
+  }
+
+  input:focus {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    border-color: #555;
+  }
+
+  .btn-default {
+    border: none;
+    background-color: #aaa;
+    width: 100%;
+    color: #fff;
+
+    transition: all 0.2s;
+  }
+
+  .btn-default:hover {
+    background-color: #888;
+  }
+
+  .checkbox {
+    line-height: 1;
+    height: 16px;
+    .boolean {
+      height: 16px;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
