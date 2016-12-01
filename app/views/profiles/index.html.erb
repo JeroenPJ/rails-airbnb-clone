@@ -51,7 +51,7 @@
       <div class="row">
         <% current_user.motorcycles.each do |motorcycle| %>
         <div class="col-xs-12 col-md-4"  >
-          <%= render 'motorcycles/card_motorcycle', motorcycle: motorcycle %>
+          <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
           <%= link_to 'Remove Listing', motorcycle, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
         <% end%>
