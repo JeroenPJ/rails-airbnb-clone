@@ -17,7 +17,7 @@ $(document).ready(function(){
     var scroll = $(window).scrollTop(); // how many pixels user has scrolled
     var banner_height = $('#banner').height(); // height of div1 in pixels
     var navbar_height = 70; // height of navbar
-    if(scroll > (banner_height + navbar_height)) {
+    if(scroll > banner_height) {
         navbarWhite();
     } else {
       navbarTransparent();
