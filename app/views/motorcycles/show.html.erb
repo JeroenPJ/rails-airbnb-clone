@@ -24,4 +24,15 @@
       <p>Total price: &euro;<%= @motorcycle.price %></p>
     </div>
   </div>
+  <div>
+  <h2>User Reviews</h2>
+  <% @motorcycle.reviews.each do |review| %>
+  <p>Posted by <%= review.user.first_name %> </p>
+  <p><%= review.content%> </p>
+  <p> <%= review.rating %> </p>
+  <% end%>
 </div>
+
+</div>
+
+

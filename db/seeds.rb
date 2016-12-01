@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
+Review.destroy_all
+Reservation.destroy_all
 Motorcycle.destroy_all
 
 10.times do
@@ -17,12 +17,10 @@ Motorcycle.destroy_all
     model: Faker::Number.between(10, 100) * 10,
     year: Faker::Number.between(1900, 2016),
     city: 'Barcelona',
-    address: Faker::Address.street_address,
+    address: 'Barcelona',
     license_plate: Faker::Number.number(8),
     availability: true,
-    photos: ["http://lorempixel.com/640/480/transport"]
+    photo_urls: ["http://lorempixel.com/640/480/transport"]
   )
-
-  p motorcycle.valid?
-  motorcycle.save
+motorcycle.save
 end

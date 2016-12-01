@@ -34,7 +34,11 @@
             <p><%= reservation.motorcycle.name %></p>
             <p><%= reservation.starting_date %></p>
             <p><%= reservation.ending_date %></p>
-              <%= link_to 'Add testimonial', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% if reservation.review.nil? %>
+              <%= link_to 'Add Testimonial', new_reservation_review_path(reservation.id) %>
+            <% else %>
+              <%= link_to 'View your review', motorcycle_path(reservation.motorcycle) %>
+            <% end %>
           </div>
           <%end%>
         <% end%>
