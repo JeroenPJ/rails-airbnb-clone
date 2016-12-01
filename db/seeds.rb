@@ -20,7 +20,6 @@ Motorcycle.destroy_all
     address: Faker::Address.street_address,
     license_plate: Faker::Number.number(8),
     availability: true,
-    photos: ["http://lorempixel.com/640/480/transport"]
   )
 
   p motorcycle.valid?

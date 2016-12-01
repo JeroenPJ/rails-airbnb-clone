@@ -1,6 +1,6 @@
 <%= simple_form_for [@motorcycle, @reservation] do |f| %>
-  <%= f.input :starting_date, label: "Dates",  input_html: {value: params[:starting_date]} %>
-  <%= f.input :ending_date, input_html: {value: params[:ending_date]} %>
-  <%= f.input :overall_price %>
+  <%= f.input :starting_date, as: :string, label: "Check-in", input_html: {value: @starting_date.strftime("%d-%m-%Y")}, disabled: true, required: false %>
+  <%= f.input :ending_date, as: :string, label: "Check-out", input_html: {value: @ending_date.strftime("%d-%m-%Y")}, disabled: true, required: false  %>
+  <%= f.input :overall_price, label: "Total price", input_html: {value: @overall_price.to_f}, disabled: true %>
   <%= f.submit "Book this motorcycle", class: "btn btn-primary" %>
 <% end %>
