@@ -1,6 +1,46 @@
-<%= simple_form_for [@motorcycle, @reservation] do |f| %>
-  <%= f.input :starting_date, as: :string, label: "Check-in", input_html: {value: @starting_date.strftime("%d-%m-%Y")}, disabled: true, required: false %>
-  <%= f.input :ending_date, as: :string, label: "Check-out", input_html: {value: @ending_date.strftime("%d-%m-%Y")}, disabled: true, required: false  %>
-  <%= f.input :overall_price, label: "Total price", input_html: {value: @overall_price.to_f}, disabled: true %>
-  <%= f.submit "Book this motorcycle", class: "btn btn-primary" %>
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<input type="text" name="daterange" value="daterange" class="input-sm form-control" />
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+
+$('input[name="daterange"]').daterangepicker({
+isInvalidDate: function(date){
+
+var formatted = date.format('MM/DD/YYYY');
+var noDays = new Array();
+<% @motorcycle.reservations.each do |m| %>
+<% (m.starting_date..m.ending_date).each do |d| %>
+noDays.push("<%= d.strftime("%m/%d/%Y") %>");
 <% end %>
+<% end %>
+return noDays.indexOf(formatted) > -1;
+}
+});
+});
+<% end %>
+<% end %>
+
+<p> Total price is <% :overall_price %> € </p>
+
+<!--
+<%= simple_form_for [@motorcycle, @reservation] do |f| %>
+<%= f.input :starting_date, as: :string, label: "Check-in", input_html: {value: @starting_date.strftime("%d-%m-%Y")}, required: false %>
+<%= f.input :ending_date, as: :string, label: "Check-out", input_html: {value: @ending_date.strftime("%d-%m-%Y")}, required: false  %>
+<%= f.input :overall_price, label: "Total price", input_html: {value: @overall_price.to_f}, disabled: true %>
+<%= f.submit "Book this motorcycle", class: "btn btn-primary" %>
+<% end %>
+
+ -->
+
+
+
