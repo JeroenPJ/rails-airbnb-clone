@@ -12,7 +12,7 @@ Motorcycle.destroy_all
 10.times do
   motorcycle = Motorcycle.new(
     name: Faker::Hipster.sentence(3),
-    user_id: 3,
+    user_id: 1,
     brand: Faker::Hipster.sentence(1),
     model: Faker::Number.between(10, 100) * 10,
     year: Faker::Number.between(1900, 2016),
@@ -21,6 +21,8 @@ Motorcycle.destroy_all
     license_plate: Faker::Number.number(8),
     availability: true,
     photo_urls: ["http://lorempixel.com/640/480/transport"]
+    price: rand(1..300)
+
   )
 motorcycle.save
 end

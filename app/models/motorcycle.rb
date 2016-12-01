@@ -3,7 +3,7 @@ class Motorcycle < ApplicationRecord
   has_many :reservations
   has_many :reviews, through: :reservations
 
-  validates :brand, :model, :year, :city, :address, :license_plate, presence: true
+  validates :brand, :model, :year, :city, :address, :license_plate, :price, presence: true
   validates :year, format: { with: /(19|20)\d{2}/,
     message: "the year should be 4 digits" }
 
