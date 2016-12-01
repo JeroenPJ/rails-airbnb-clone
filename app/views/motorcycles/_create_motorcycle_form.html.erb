@@ -5,10 +5,15 @@
   <%= f.input :brand, label: "Brand" %>
   <%= f.input :model, label: "Model" %>
   <%= f.input :year, label: "Build year" %>
-  <%= f.input :city, label: "City" %>
-  <%= f.input :address, label: "Address" %>
   <%= f.input :license_plate, label: "License plate"%>
+  <hr>
+  <p>Photos</p>
   <%= f.input :photos, as: :attachinary %>
+  <hr>
+  <p>Location</p>
+  <div id="locationField" class="border-radius-left">
+    <%= f.input :address, label: "Address", input_html: { id: "autocomplete", onFocus: "geolocate()" } %>
+  </div>
   <hr>
   <p>Pricing</p>
   <%= f.input :price, label: "Price" %>
