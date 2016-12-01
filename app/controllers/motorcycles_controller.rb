@@ -5,6 +5,7 @@ class MotorcyclesController < ApplicationController
   before_action :set_motorcycle, only: [:show]
 
   def index
+
     @available_motorcycles = []
     location = params[:location]
     date = params[:daterange].split(" - ").map {|date| Date.strptime(date,"%m/%d/%Y")}
