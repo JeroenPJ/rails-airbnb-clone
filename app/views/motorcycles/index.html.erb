@@ -1,17 +1,23 @@
 <div class="container-fluid" id="container-index" style="height: 100%;">
   <div class="row" style="height: 100%;">
-    <div class="col-xs-7">
+    <div class="col-xs-7" style="padding: 0 30px;">
       <!-- List of motorcycles -->
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-12 no-padding">
             <!-- Filter controls -->
-            <p>Filter controls</p>
+            <form action="search" class="search-form form-inline" method="get" style="margin-top: 0;">
+              <div id="locationField" class="border-radius-left">
+                <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text" value="<%= params[:location] %>"></input>
+              </div>
+              <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker">
+              <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
+            </form>
           </div>
         </div>
 
         <div class="row">
-          <h3>Results</h3>
+          <h2>Results for <%= params[:location] %></h2>
           <% @available_motorcycles.each do |motorcycle| %>
             <% if motorcycle.availability %>
               <div class="col-xs-12 col-md-6 no-padding">
