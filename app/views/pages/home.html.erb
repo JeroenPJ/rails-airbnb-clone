@@ -1,16 +1,10 @@
 <div class="jumbotron" id="banner"
- style="background-image: url('<%= cl_image_path "cover_vsztff", crop: :fit %>')">
+ style="background-image: url('<%= cl_image_path "cover_vsztff", crop: :fill %>')">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <h1>OpenRoad</h1>
         <h3>Rent motorcycles anywhere,<br>anytime you want.</h3>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <!-- SEARCH FORM -->
       </div>
     </div>
   </div>
@@ -23,7 +17,7 @@
         <div id="locationField" class="border-radius-left">
           <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text"></input>
         </div>
-        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker">
+        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker" value="<%= params[:location] %>">
         <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
       </form>
     </div>
@@ -34,9 +28,12 @@
   <div class="container">
     <h2>Featured bikes:</h2>
     <div class="row">
-      <div class="col-xs-12 col-md-4"></div>
-      <div class="col-xs-12 col-md-4"></div>
-      <div class="col-xs-12 col-md-4"></div>
+      <% Motorcycle.all.order(id: :desc).limit(3).each do |motorcycle| %>
+      <div class="col-xs-12 col-md-4 no-padding">
+        <!-- Single motorcycle card -->
+        <%= render 'motorcycles/card_motorcycle_displaying_location', motorcycle: motorcycle %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
