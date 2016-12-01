@@ -1,5 +1,5 @@
 <div class="card-motorcycle-wrapper">
-  <%= link_to motorcycle_path(motorcycle, location: @location, starting_date: @date[0], ending_date: @date[1] ) do %>
+  <%= link_to motorcycle_path(motorcycle, starting_date: @date[0], ending_date: @date[1] ) do %>
     <div class="card-motorcycle">
       <% if motorcycle.photos.empty? %>
         <%= cl_image_tag("default-img_hn54at", width: 300, height: 200, crop: :fill) %>
