@@ -7,4 +7,7 @@ class Motorcycle < ApplicationRecord
     message: "the year should be 4 digits" }
 
   has_attachments :photos, maximum: 2
+
+  geocoded_by :address, latitude: :lat, longitude: :lng
+  after_validation :geocode, if: :address_changed?
 end

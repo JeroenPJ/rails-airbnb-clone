@@ -6,6 +6,14 @@
       <% else %>
         <%= cl_image_tag(motorcycle.photos[0].path, width: 300, height: 200, crop: :fill) %>
       <%end%>
+
+      <!-- Owner avatar -->
+      <%= link_to profiles_path(motorcycle.user) do %>
+        <div class="avatar-container">
+          <%= cl_image_tag("default-img_hn54at", width: 50, height: 50, crop: :fill) %>
+        </div>
+      <% end %>
+
       <div class="motorcycle-info">
         <p class="motorcycle-info-main"><strong>&#8364;<span class="motorcycle-price"><%= motorcycle.price %></span></strong><%= motorcycle.name %></p>
         <p class="motorcycle-info-secondary">Model: <%= motorcycle.model %>, brand: <%= motorcycle.brand %></p>
