@@ -8,7 +8,7 @@
       <%end%>
 
       <!-- Owner avatar -->
-      <%= link_to profiles_index_path(motorcycle.user) do %>
+      <%= link_to profiles_path(motorcycle.user) do %>
         <div class="avatar-container">
           <%= cl_image_tag("default-img_hn54at", width: 50, height: 50, crop: :fill) %>
         </div>
