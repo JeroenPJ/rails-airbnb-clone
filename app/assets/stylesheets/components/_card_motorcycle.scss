@@ -41,3 +41,27 @@
     padding-right: 10px;
   }
 }
+
+.avatar-container {
+  width: 60px;
+  height: 60px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 2px;
+
+  background-color: #fff;
+
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+
+  img {
+    border-radius: 50%;
+    height: 56px;
+    width: 56px;
+    border: 2px solid #fff;
+  }
+}

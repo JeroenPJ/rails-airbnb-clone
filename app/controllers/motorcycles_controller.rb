@@ -8,7 +8,7 @@ class MotorcyclesController < ApplicationController
     @available_motorcycles = []
     location = params[:location]
     date = params[:daterange].split(" - ").map {|date| Date.strptime(date,"%m/%d/%Y")}
-    @motorcycles = Motorcycle.where(city: location)
+    @motorcycles = Motorcycle.near(location, 50)
     @motorcycles.each do |motorcycle|
       overlaps = false
       motorcycle.reservations.each do |reservation|
@@ -16,6 +16,12 @@ class MotorcyclesController < ApplicationController
         break if overlaps
       end
       @available_motorcycles << motorcycle unless overlaps
+    end
+
+    @hash = Gmaps4rails.build_markers(@motorcycles) do |motorcycle, marker|
+      marker.lat motorcycle.lat
+      marker.lng motorcycle.lng
+      # marker.infowindow render_to_string(partial: "/motorcycles/map_box", locals: { motorcycle: motorcycle })
     end
   end
 
