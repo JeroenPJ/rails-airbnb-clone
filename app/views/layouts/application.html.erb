@@ -18,12 +18,16 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyDnklerkF_nyX5RGxwARSKm_BOFLJHDPfI&libraries=places&callback=initAutocomplete" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnklerkF_nyX5RGxwARSKm_BOFLJHDPfI&libraries=places&callback=initAutocomplete" async defer></script>
+    <%= yield(:after_js) %>
   </body>
 </html>
