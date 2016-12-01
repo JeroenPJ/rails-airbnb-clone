@@ -27,9 +27,44 @@
   max-width: 600px;
   width: 100%;
 
+  border: 1px solid #eee;
+
   background-color: #fff;
-  border-radius: 8px;
-  padding: 50px 100px;
+  border-radius: 4px;
+  padding: 10px 100px;
+
+  hr {
+    border-color: rgb(153, 153, 153);
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+    border-radius: 2px;
+
+    color: #fff;
+    background-color: #999;
+
+    transition: all 0.2s;
+  }
+
+  a:hover {
+    text-transform: none !important;
+    color: #fff;
+    background-color: #777;
+  }
+
+  a[href="/users/auth/facebook"] {
+    background-color: #3b5998;
+  }
+
+  a[href="/users/auth/facebook"]:hover {
+    background-color: #324b81;
+  }
 
   input {
     height: 50px;
@@ -39,6 +74,8 @@
     box-shadow: none;
     border-color: #999;
     padding: 0 10px;
+
+    transition: all 0.2s;
   }
 
   input:focus {
@@ -51,6 +88,12 @@
     background-color: #aaa;
     width: 100%;
     color: #fff;
+
+    transition: all 0.2s;
+  }
+
+  .btn-default:hover {
+    background-color: #888;
   }
 
   .checkbox {

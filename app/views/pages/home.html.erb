@@ -17,7 +17,7 @@
         <div id="locationField" class="border-radius-left">
           <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text"></input>
         </div>
-        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker">
+        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker" value="<%= params[:location] %>">
         <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
       </form>
     </div>
@@ -31,7 +31,7 @@
       <% Motorcycle.all.order(id: :desc).limit(3).each do |motorcycle| %>
       <div class="col-xs-12 col-md-4 no-padding">
         <!-- Single motorcycle card -->
-        <%= render 'motorcycles/card_motorcycle', motorcycle: motorcycle %>
+        <%= render 'motorcycles/card_motorcycle_displaying_location', motorcycle: motorcycle %>
       </div>
       <% end %>
     </div>
