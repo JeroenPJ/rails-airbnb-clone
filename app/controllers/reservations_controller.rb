@@ -15,9 +15,15 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @motorcycle.reservations.build(reservation_params)
-    @reservation.user_id = current_user
+    @reservation.user = current_user
     @reservation.save
-    redirect_to root_path
+    redirect_to profiles_path
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to profiles_path
   end
 
   private
