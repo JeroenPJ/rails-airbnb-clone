@@ -1,21 +1,21 @@
 <%= simple_form_for @motorcycle do |f| %>
-  <p>Motorcycle information</p>
-  <%= f.input :name, label: "Name" %>
-  <%= f.input :description, label: "Description" %>
-  <%= f.input :brand, label: "Brand" %>
-  <%= f.input :model, label: "Model" %>
-  <%= f.input :year, label: "Build year" %>
-  <%= f.input :license_plate, label: "License plate"%>
+  <h2>Motorcycle information</h2>
+  <%= f.input :name, placeholder: "Enter a cool name!" %>
+  <%= f.input :description, placeholder: "Describe your motorcycle" %>
+  <%= f.input :brand, placeholder: "Brand" %>
+  <%= f.input :model, placeholder: "Model" %>
+  <%= f.input :year, placeholder: "Build year" %>
+  <%= f.input :license_plate, placeholder: "License plate"%>
   <hr>
-  <p>Photos</p>
+  <h2>Photos</h2>
   <%= f.input :photos, as: :attachinary %>
   <hr>
-  <p>Location</p>
+  <h2>Location</h2>
   <div id="locationField" class="border-radius-left">
     <%= f.input :address, label: "Address", input_html: { id: "autocomplete", onFocus: "geolocate()" } %>
   </div>
   <hr>
-  <p>Pricing</p>
+  <h2>Pricing</h2>
   <%= f.input :price, label: "Price" %>
   <%= f.button :submit %>
 <% end %>

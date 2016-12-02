@@ -3,12 +3,13 @@
   transition: all 0.15s ease;
   height: 70px;
   padding: 10px 30px;
+  margin: 0;
 
-  position: fixed;
+  position: fixed !important;
   z-index: 1;
   width: 100%;
-  left: 0;
-  top: 0;
+  left: 0 !important;
+  top: 0 !important;
 
   color: #444;
 
@@ -116,8 +117,11 @@
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
+  padding: 10px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+
+  border-radius: 0;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
