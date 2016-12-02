@@ -19,19 +19,19 @@ class MotorcyclesController < ApplicationController
       end
       @available_motorcycles << motorcycle unless overlaps
     end
+
     @hash = Gmaps4rails.build_markers(@motorcycles) do |motorcycle, marker|
       marker.lat motorcycle.lat
       marker.lng motorcycle.lng
       # marker.infowindow render_to_string(partial: "/motorcycles/map_box", locals: { motorcycle: motorcycle })
     end
-
   end
 
   def show
     @reservation = Reservation.new
     @starting_date = Date.strptime(params[:starting_date],"%Y-%m-%d")
     @ending_date = Date.strptime(params[:ending_date],"%Y-%m-%d")
-    @overall_price = (@motorcycle.price.to_f) * ((Date.strptime(params[:ending_date],"%Y-%m-%d") - Date.strptime(params[:starting_date],"%Y-%m-%d")).to_f
+    @overall_price = @motorcycle.price.to_f * (Date.strptime(params[:ending_date],"%Y-%m-%d") - Date.strptime(params[:starting_date],"%Y-%m-%d")).to_f
   end
 
   def new
