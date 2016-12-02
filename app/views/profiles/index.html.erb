@@ -5,32 +5,55 @@
 
     <p><%= current_user.first_name%> <%= current_user.last_name%></p>
 
-    <h2>My reservations</h2>
+    <h2>My upcoming reservations</h2>
     <div class='container'>
 
       <div class="row">
 
-          <% current_user.reservations.each do |reservation| %>
+        <% current_user.reservations.each do |reservation| %>
+          <% if reservation.ending_date > Date.today %>
           <div class="col-xs-12 col-md-4"  >
-          <p><%= reservation.motorcycle.name %></p>
-          <p><%= reservation.starting_date %></p>
-          <p><%= reservation.ending_date %></p>
-          <%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <p><%= reservation.motorcycle.name %></p>
+            <p><%= reservation.starting_date %></p>
+            <p><%= reservation.ending_date %></p>
+              <%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
+          <%end%>
         <% end%>
       </div>
     </div>
 
+    <h2>My reservations history</h2>
+    <div class='container'>
+
+      <div class="row">
+
+        <% current_user.reservations.each do |reservation| %>
+          <% if reservation.ending_date < Date.today %>
+          <div class="col-xs-12 col-md-4"  >
+            <p><%= reservation.motorcycle.name %></p>
+            <p><%= reservation.starting_date %></p>
+            <p><%= reservation.ending_date %></p>
+            <% if reservation.review.nil? %>
+              <%= link_to 'Add Testimonial', new_reservation_review_path(reservation.id) %>
+            <% else %>
+              <%= link_to 'View your review', motorcycle_path(reservation.motorcycle) %>
+            <% end %>
+          </div>
+          <%end%>
+        <% end%>
+      </div>
+    </div>
 
     <h2>Motorcycles I have for rent</h2>
     <div class='container'>
 
       <div class="row">
-          <% current_user.motorcycles.each do |motorcycle| %>
-          <div class="col-xs-12 col-md-4"  >
-          <%= render 'motorcycles/card_motorcycle', motorcycle: motorcycle %>
+        <% current_user.motorcycles.each do |motorcycle| %>
+        <div class="col-xs-12 col-md-4"  >
+          <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
           <%= link_to 'Remove Listing', motorcycle, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
+        </div>
         <% end%>
       </div>
     </div>

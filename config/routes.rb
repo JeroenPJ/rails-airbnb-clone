@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
+
+
   resources :profiles, only: :index
+
+  resources :reservations, only: :show do
+    resources :reviews, only: [:new, :create]
+  end
 
   resources :reservations, only: :destroy, as: "remove_reservation"
 
