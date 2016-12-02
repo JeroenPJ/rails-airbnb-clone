@@ -5,7 +5,7 @@
     </div>
   <% end %>
   <div class="caroussel-item active">
-    <div class="photo-add">
+    <div class="add-photo">
       <h2>Drag 'n drop to add photo (or click here)</h2>
     </div>
   </div>
@@ -32,28 +32,10 @@
     </div>
 
     <div class="col-xs-12 col-md-3">
-      <!-- Booking form -->
-      <%= render 'reservations/form' %>
-      <hr>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 horizontal-padding-small">
-      <h2>User Reviews</h2>
-      <div class="container">
-        <div class="row">
-          <% @motorcycle.reviews.each do |review| %>
-            <div class="col-xs-12 col-md-4">
-              <div class="card-review">
-                <h4>Posted by <%= review.user.first_name %> </h4>
-                <p><%= review.content%> </p>
-                <h4> <%= review.rating %> </h4>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <form class="search-form">
+        <button>Save changes</button>
+        <button>Discard changes</button>
+      </form>
     </div>
   </div>
 </div>

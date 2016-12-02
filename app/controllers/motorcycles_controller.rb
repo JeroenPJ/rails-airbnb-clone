@@ -1,11 +1,10 @@
 class MotorcyclesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
 
-  before_action :set_motorcycle, only: [:show]
+  before_action :set_motorcycle, only: [:show, :edit]
 
   def index
-
     @available_motorcycles = []
     @location = params[:location]
     @date = params[:daterange].split(" - ").map {|date| Date.strptime(date,"%m/%d/%Y")}
@@ -59,6 +58,9 @@ class MotorcyclesController < ApplicationController
     #     format.json { render json: @motorcycle.errors, status: :unprocessable_entity }
     #   end
     # end
+  end
+
+  def edit
   end
 
   def destroy
