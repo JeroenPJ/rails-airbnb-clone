@@ -31,6 +31,8 @@ class MotorcyclesController < ApplicationController
     @reservation = Reservation.new
     @starting_date = Date.strptime(params[:starting_date],"%Y-%m-%d")
     @ending_date = Date.strptime(params[:ending_date],"%Y-%m-%d")
+    @daterange = "#{@starting_date.strftime("%m/%d/%Y")} - #{(@ending_date).strftime("%m/%d/%Y")}"
+
     @overall_price = @motorcycle.price.to_f * (Date.strptime(params[:ending_date],"%Y-%m-%d") - Date.strptime(params[:starting_date],"%Y-%m-%d")).to_f
   end
 
@@ -43,7 +45,7 @@ class MotorcyclesController < ApplicationController
     @motorcycle = current_user.motorcycles.build(motorcycle_params)
     @motorcycle.availability = true
     @motorcycle.save
-    redirect_to profiles_index_path
+    redirect_to profiles_path
     # respond_to do |format|
     #   if @motorcycle.save
     #     format.html { redirect_to current_user, notice: 'Motorcycle was successfully added.' }
