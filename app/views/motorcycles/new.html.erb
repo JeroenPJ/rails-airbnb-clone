@@ -1,9 +1,11 @@
+<div class="wrapper" id="wrapper-user-session">
+  <div class="full-page-img"></div>
+    <div class="container" id="container-user-session">
+    <h1>Add your motorcycle</h1>
 
-<div class= 'text-center'>
-<h1>New Motorcycle</h1>
+    <%= render 'create_motorcycle_form', motorcycle: @motorcycle %>
 
-<%= render 'create_motorcycle_form', motorcycle: @motorcycle %>
+    <%= link_to 'Back', profiles_path %>
 
-<%= link_to 'Back', profiles_path %>
-
+  </div>
 </div>
