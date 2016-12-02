@@ -6,8 +6,8 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-<input type="text" name="daterange" value="daterange" class="input-sm form-control" />
-
+<!-- <input type="text" name="daterange" value="<%= params[:daterange] %>" class="input-sm form-control" />
+ -->
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>
 $(document).ready(function() {
@@ -29,17 +29,19 @@ return noDays.indexOf(formatted) > -1;
 <% end %>
 <% end %>
 
-<p> Total price is <% :overall_price %> € </p>
-
-<!--
-<%= simple_form_for [@motorcycle, @reservation] do |f| %>
-<%= f.input :starting_date, as: :string, label: "Check-in", input_html: {value: @starting_date.strftime("%d-%m-%Y")}, required: false %>
-<%= f.input :ending_date, as: :string, label: "Check-out", input_html: {value: @ending_date.strftime("%d-%m-%Y")}, required: false  %>
-<%= f.input :overall_price, label: "Total price", input_html: {value: @overall_price.to_f}, disabled: true %>
-<%= f.submit "Book this motorcycle", class: "btn btn-primary" %>
+<%= simple_form_for [@motorcycle, @reservation], url: motorcycle_reservations_path(@motorcycle) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+  <%= f.input :dates, input_html: {name: "daterange", value: @daterange} %>
+  </div>
+  <div class="form-actions">
+  <%= f.input :price ,as: :hidden, input_html: { value: @overall_price } %>
+  <%= f.button :submit %>
+  </div>
 <% end %>
 
- -->
 
 
-
+<p> </p>
+<p> Total price is <%= @overall_price.to_f %> € </p>
+<p> </p>
