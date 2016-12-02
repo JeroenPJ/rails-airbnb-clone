@@ -43,7 +43,10 @@
               <div class="card-review">
                 <h4>Posted by <%= review.user.first_name %> </h4>
                 <p><%= review.content%> </p>
-                <h4> <%= review.rating %> </h4>
+                <% stars = review.rating %>
+                <% stars.times do %>
+                 <i class="fa fa-star" aria-hidden="true"> </i>
+                 <%end%>
               </div>
             </div>
           <% end %>
