@@ -29,9 +29,15 @@ class MotorcyclesController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    @starting_date = Date.strptime(params[:starting_date],"%Y-%m-%d")
-    @ending_date = Date.strptime(params[:ending_date],"%Y-%m-%d")
-    @overall_price = @motorcycle.price.to_f * (Date.strptime(params[:ending_date],"%Y-%m-%d") - Date.strptime(params[:starting_date],"%Y-%m-%d")).to_f
+    if params[:starting_date] && params[:ending_date]
+      @starting_date = Date.strptime(params[:starting_date],"%Y-%m-%d")
+      @ending_date = Date.strptime(params[:ending_date],"%Y-%m-%d")
+    else
+      @starting_date = Date.today
+      @ending_date = Date.today
+    end
+
+    @overall_price = @motorcycle.price.to_f * (@ending_date - @starting_date).to_f
   end
 
   def new
