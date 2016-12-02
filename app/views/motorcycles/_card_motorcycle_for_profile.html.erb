@@ -8,7 +8,7 @@
       <%end%>
 
       <!-- Owner avatar -->
-      <%= link_to profiles_path(motorcycle.user) do %>
+      <%= link_to profiles_path(id: motorcycle.user.id) do %>
         <div class="avatar-container">
           <%= cl_image_tag(motorcycle.user.facebook_picture_url, width: 50, height: 50, crop: :fill) %>
         </div>

@@ -1,11 +1,11 @@
 <div class="profile">
   <div class= 'profile-head'>
-    <h1>My Profile</h1>
+    <% if current_user == @user %>
+      <h1>My Profile</h1>
 
-    <p><%= current_user.first_name%> <%= current_user.last_name%></p>
+      <p><%= current_user.first_name%> <%= current_user.last_name%></p>
 
-
-    <div class='container'>
+      <div class='container'>
       <h2>My upcoming reservations</h2>
       <div class="row">
         <% current_user.reservations.each do |reservation| %>
@@ -59,9 +59,20 @@
         <% end%>
       </div>
     </div>
+    <% else %>
+      <h1><%= @user.first_name%> <%= @user.last_name%>'s profile</h1>
 
-
-
+    <h2>Motorcycles <%= @user.first_name%> <%= @user.last_name%> has for rent</h2>
+    <div class='container'>
+      <div class="row">
+        <% @user.motorcycles.each do |motorcycle| %>
+        <div class="col-xs-12 col-md-4"  >
+          <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
+        </div>
+        <% end%>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
 

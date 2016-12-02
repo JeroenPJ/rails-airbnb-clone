@@ -2,7 +2,7 @@ class MotorcyclesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show, :edit, :update]
 
-  before_action :set_motorcycle, only: [:show, :edit, :update]
+  before_action :set_motorcycle, only: [:show, :edit, :update, :destroy]
 
   def index
     @available_motorcycles = []
@@ -69,7 +69,7 @@ class MotorcyclesController < ApplicationController
 
   def destroy
     @motorcycle.destroy
-    redirect_to profiles_index_path
+    redirect_to profiles_path
   end
 
   private
