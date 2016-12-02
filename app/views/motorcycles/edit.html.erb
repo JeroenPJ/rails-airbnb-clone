@@ -11,31 +11,33 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-9 no-padding">
-      <div class="horizontal-padding-small">
-        <h1><%= @motorcycle.name %></h1>
-        <h4>In <%= @motorcycle.address %>, <%= @motorcycle.city %></h4>
-        <h4>Owned by <%= @motorcycle.user.first_name.capitalize %> <%= @motorcycle.user.last_name.capitalize %></h4>
+<%= simple_form_for @motorcycle do |f| %>
+  <div class="container container-form" id="edit-motorcycle-form">
+    <div class="row">
+      <div class="col-xs-12 col-md-9 no-padding">
+        <div class="horizontal-padding-small">
+          <h1><%= f.input :name, label: false, placeholder: "Enter a name", value: @motorcycle.name %></h1>
+          <h4>In <%= @motorcycle.address %>, <%= @motorcycle.city %></h4>
+          <h4>Owned by <%= @motorcycle.user.first_name.capitalize %> <%= @motorcycle.user.last_name.capitalize %></h4>
+        </div>
+
+        <div class="description">
+          <h5>About this bike</h5>
+          <p><%= f.input :description, label: false, placeholder: "Describe your motorcycle", value: @motorcycle.description %></p>
+        </div>
+
+        <div class="horizontal-padding-small">
+          <p><%= f.input :model, label: false, placeholder: "Model", value: @motorcycle.model %> | <%= f.input :brand, label: false, placeholder: "Brand", value: @motorcycle.brand %> | Manufactured in <%= f.input :year, label: false, placeholder: "Year", value: @motorcycle.year %></p>
+          <p>License plate: <%= f.input :license_plate, label: false, placeholder: "License plate", value: @motorcycle.license_plate %></p>
+        </div>
       </div>
 
-      <div class="description">
-        <h5>About this bike</h5>
-        <p><%= @motorcycle.description %></p>
+      <div class="col-xs-12 col-md-3">
+        <form class="container-form">
+          <%= f.button :submit, value: "Save changes", class: "button-confirm btn-default" %>
+          <%= link_to "Discard changes", motorcycle_path(@motorcycle), class: "button-cancel" %>
+        </form>
       </div>
-
-      <div class="horizontal-padding-small">
-        <p><%= @motorcycle.model %> | <%= @motorcycle.brand %> | Manufactured in <%= @motorcycle.year %></p>
-        <p>License plate: <%= @motorcycle.license_plate %></p>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-md-3">
-      <form class="search-form">
-        <button>Save changes</button>
-        <button>Discard changes</button>
-      </form>
     </div>
   </div>
-</div>
+<% end %>

@@ -11,10 +11,9 @@
 
         <% current_user.reservations.each do |reservation| %>
           <% if reservation.ending_date > Date.today %>
-          <div class="col-xs-12 col-md-4"  >
-            <p><%= reservation.motorcycle.name %></p>
-            <p><%= reservation.starting_date %></p>
-            <p><%= reservation.ending_date %></p>
+          <div class="col-xs-12 col-md-4">
+            <%= render 'motorcycles/card_motorcycle', motorcycle: reservation.motorcycle %>
+            <p><%= reservation.starting_date %> - <%= reservation.ending_date %></p>
               <%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <%end%>

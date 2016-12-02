@@ -1,0 +1,44 @@
+#edit-motorcycle-form input {
+  display: inline !important;
+  margin: 1px !important;
+  padding: 1px !important;
+  width: auto !important;
+}
+
+#edit-motorcycle-form {
+  h1 > div > input {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 30px;
+    color: #444;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 > div > input {
+    font-family: 'Montserrat', 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+  }
+
+  h4 > div > input {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+    font-size: 14px;
+    color: #777;
+  }
+
+  h5 > div > input {
+    font-family: 'Montserrat', 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #bbb;
+  }
+
+  p > div > input {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+    font-size: 17px;
+    font-weight: lighter;
+  }
+}
