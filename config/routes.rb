@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-
-
   resources :profiles, only: :index
 
   resources :reservations, only: :show do

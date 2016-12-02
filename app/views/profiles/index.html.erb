@@ -9,18 +9,18 @@
       <h2>My upcoming reservations</h2>
       <div class="row">
         <% current_user.reservations.each do |reservation| %>
-        <% if reservation.ending_date > Date.today %>
-        <div class="col-xs-12 col-md-4"  >
-          <% motorcycle = reservation.motorcycle %>
-          <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
-          <p><%= reservation.starting_date %> until <%= reservation.ending_date %></p>
-          <p>Total Price: €<%=reservation.overall_price%></p>
-          <p><%= "Contact the owner at 666 734 876"%></p>
+          <% if reservation.ending_date > Date.today %>
+            <div class="col-xs-12 col-md-4"  >
+              <% motorcycle = reservation.motorcycle %>
+              <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
+              <p><%= reservation.starting_date %> until <%= reservation.ending_date %></p>
+              <p>Total Price: €<%=reservation.overall_price%></p>
+              <p><%= "Contact the owner at 666 734 876"%></p>
 
-          <p><%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
-        <%end%>
-        <% end%>
+              <p><%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
 

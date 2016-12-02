@@ -1,8 +1,8 @@
 class MotorcyclesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit, :update]
 
-  before_action :set_motorcycle, only: [:show]
+  before_action :set_motorcycle, only: [:show, :edit, :update]
 
   def index
     @available_motorcycles = []
@@ -54,6 +54,17 @@ class MotorcyclesController < ApplicationController
     #     format.json { render json: @motorcycle.errors, status: :unprocessable_entity }
     #   end
     # end
+  end
+
+  def edit
+  end
+
+  def update
+    if @motorcycle.update(motorcycle_params)
+      redirect_to motorcycle_path(@motorcycle)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
