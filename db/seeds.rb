@@ -9,20 +9,98 @@ Review.destroy_all
 Reservation.destroy_all
 Motorcycle.destroy_all
 
-10.times do
-  motorcycle = Motorcycle.new(
-    name: Faker::Hipster.sentence(3),
-    user_id: 3,
-    brand: Faker::Hipster.sentence(1),
-    model: Faker::Number.between(10, 100) * 10,
-    year: Faker::Number.between(1900, 2016),
+
+Motorcycle.create!(
+    name: "Rent a fantastic classic in Barcelona!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 4,
+    brand: "Honda",
+    model: "CB750",
+    year: 1984,
     city: 'Barcelona',
-    address: 'Barcelona',
+    address: 'Carrer de Sardenya, Barcelona, Spain',
     license_plate: Faker::Number.number(8),
     availability: true,
-    photo_urls: ["http://lorempixel.com/640/480/transport"],
-    price: rand(1..300)
-
+    photo_urls: ["https://s-media-cache-ak0.pinimg.com/originals/9b/fb/5b/9bfb5b0a0831a488a84d3fcd2be36819.jpg"],
+    price: 80
   )
-motorcycle.save
-end
+
+Motorcycle.create!(
+    name: "Beautiful Racer for country ride!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 4,
+    brand: "Yamaha",
+    model: "R1",
+    year: 2016,
+    city: 'Barcelona',
+    address: 'Carrer de Balmes, Barcelona, Spain',
+    license_plate: Faker::Number.number(8),
+    availability: true,
+    photo_urls: ["https://wimoto.eu/wp-content/uploads/2014/08/YamahaR1LR-17.jpg"],
+    price: 60
+  )
+
+Motorcycle.create!(
+    name: "Easy Rider in the easy city!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 4,
+    brand: "Harley Davidson",
+    model: "Sportster",
+    year: 2010,
+    city: 'Barcelona',
+    address: 'Passeig de Gràcia, Barcelona, Spain',
+    license_plate: Faker::Number.number(8),
+    availability: true,
+    photo_urls: ["https://s-media-cache-ak0.pinimg.com/originals/9b/08/fd/9b08fd1f2096087ef617c46e5a31d692.jpg"],
+    price: 120
+  )
+
+Motorcycle.create!(
+    name: "Cruise in Amsterdam!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 5,
+    brand: "Moto Guzzi",
+    model: "Le Mans 850",
+    year: 1979,
+    city: 'Amsterdam',
+    address: 'Prinsengracht 263-267, Amsterdam, Netherlands',
+    license_plate: Faker::Number.number(8),
+    availability: true,
+    photo_urls: ["http://kickstart.bikeexif.com/wp-content/uploads/2014/02/moto-guzzi-le-mans-matt-machine.jpg"],
+    price: 150
+  )
+
+Motorcycle.create!(
+    name: "Amster-dam-straight!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 5,
+    brand: "BMW",
+    model: "R100RS",
+    year: 1980,
+    city: 'Amsterdam',
+    address: 'Prinsengracht 150, Amsterdam, Netherlands',
+    license_plate: Faker::Number.number(8),
+    availability: true,
+    photo_urls: ["http://bikebrewers.com/wp-content/uploads/2015/11/BMW-R100R-Caf%C3%A9-Racer-by-Diamond-Atelier.jpg"],
+    price: 250
+  )
+
+  Motorcycle.create!(
+    name: "Custom lady-magnet!",
+    description: Faker::Hipster.sentence(3),
+    user_id: 5,
+    brand: "BMW",
+    model: "RNineT",
+    year: 2014,
+    city: 'Amsterdam',
+    address: 'Prinsengracht 33, Amsterdam, Netherlands',
+    license_plate: Faker::Number.number(8),
+    availability: true,
+    photo_urls: ["https://s-media-cache-ak0.pinimg.com/originals/2f/4c/35/2f4c35fe0fc0f7539ef744d96b5d7165.jpg"],
+    price: 180
+  )
+
+
+
+
+
