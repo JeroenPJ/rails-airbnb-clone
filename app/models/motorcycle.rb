@@ -1,7 +1,7 @@
 class Motorcycle < ApplicationRecord
   belongs_to :user
-  has_many :reservations
-  has_many :reviews, through: :reservations
+  has_many :reservations, dependent: :destroy
+  has_many :reviews, through: :reservations, dependent: :destroy
 
   validates :brand, :model, :year, :city, :address, :license_plate, :price, presence: true
   validates :year, format: { with: /(19|20)\d{2}/,

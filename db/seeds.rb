@@ -13,7 +13,7 @@ Motorcycle.destroy_all
 Motorcycle.create!(
     name: "Rent a fantastic classic in Barcelona!",
     description: Faker::Hipster.sentence(3),
-    user_id: 4,
+    user_id: 5,
     brand: "Honda",
     model: "CB750",
     year: 1984,
@@ -28,7 +28,7 @@ Motorcycle.create!(
 Motorcycle.create!(
     name: "Beautiful Racer for country ride!",
     description: Faker::Hipster.sentence(3),
-    user_id: 4,
+    user_id: 5,
     brand: "Yamaha",
     model: "R1",
     year: 2016,
@@ -43,7 +43,7 @@ Motorcycle.create!(
 Motorcycle.create!(
     name: "Easy Rider in the easy city!",
     description: Faker::Hipster.sentence(3),
-    user_id: 4,
+    user_id: 7,
     brand: "Harley Davidson",
     model: "Sportster",
     year: 2010,
@@ -58,7 +58,7 @@ Motorcycle.create!(
 Motorcycle.create!(
     name: "Cruise in Amsterdam!",
     description: Faker::Hipster.sentence(3),
-    user_id: 5,
+    user_id: 6,
     brand: "Moto Guzzi",
     model: "Le Mans 850",
     year: 1979,
@@ -73,7 +73,7 @@ Motorcycle.create!(
 Motorcycle.create!(
     name: "Amster-dam-straight!",
     description: Faker::Hipster.sentence(3),
-    user_id: 5,
+    user_id: 6,
     brand: "BMW",
     model: "R100RS",
     year: 1980,
@@ -88,7 +88,7 @@ Motorcycle.create!(
   Motorcycle.create!(
     name: "Custom lady-magnet!",
     description: Faker::Hipster.sentence(3),
-    user_id: 5,
+    user_id: 7,
     brand: "BMW",
     model: "RNineT",
     year: 2014,

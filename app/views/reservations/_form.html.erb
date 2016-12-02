@@ -6,42 +6,38 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-<!-- <input type="text" name="daterange" value="<%= params[:daterange] %>" class="input-sm form-control" />
- -->
+
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$(document).ready(function() {
-
-$('input[name="daterange"]').daterangepicker({
-isInvalidDate: function(date){
-
-var formatted = date.format('MM/DD/YYYY');
-var noDays = new Array();
-<% @motorcycle.reservations.each do |m| %>
-<% (m.starting_date..m.ending_date).each do |d| %>
-noDays.push("<%= d.strftime("%m/%d/%Y") %>");
-<% end %>
-<% end %>
-return noDays.indexOf(formatted) > -1;
-}
-});
-});
-<% end %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('input[name="daterange"]').daterangepicker({
+        isInvalidDate: function(date){
+        var formatted = date.format('MM/DD/YYYY');
+        var noDays = new Array();
+        <% @motorcycle.reservations.each do |m| %>
+          <% (m.starting_date..m.ending_date).each do |d| %>
+            noDays.push("<%= d.strftime("%m/%d/%Y") %>");
+          <% end %>
+        <% end %>
+        return noDays.indexOf(formatted) > -1;
+        }
+      });
+    });
+  <% end %>
 <% end %>
 
 <%= simple_form_for [@motorcycle, @reservation], url: motorcycle_reservations_path(@motorcycle) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-  <%= f.input :dates, input_html: {name: "daterange", value: @daterange} %>
-  </div>
-  <div class="form-actions">
-  <%= f.input :price ,as: :hidden, input_html: { value: @overall_price } %>
-  <%= f.button :submit %>
-  </div>
-<% end %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :dates, input_html: {name: "daterange", value: @daterange} %>
+    </div>
 
-
+    <div class="form-actions">
+      <%= f.input :price, as: :hidden, input_html: { value: @overall_price } %>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
 
 <p> </p>
-<p> Total price is <%= @overall_price.to_f %> € </p>
+  <p> Total price is <%= @overall_price.to_f %> € </p>
 <p> </p>
