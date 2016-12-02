@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :profiles, only: :index
+  resources :profiles, only: [:index]
+
+  get 'profiles/:id', to: "profiles#index"
 
   resources :reservations, only: :show do
     resources :reviews, only: [:new, :create]
