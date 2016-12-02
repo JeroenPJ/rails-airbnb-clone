@@ -6,8 +6,6 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-<!-- <input type="text" name="daterange" value="<%= params[:daterange] %>" class="input-sm form-control" />
--->
 
 <div class="container-form">
   <%= simple_form_for [@motorcycle, @reservation], url: motorcycle_reservations_path(@motorcycle) do |f| %>
@@ -16,10 +14,9 @@
       <%= f.input :dates, input_html: { name: "daterange", value: @daterange } %>
     </div>
 
-    <p>Total price is &euro;<%= @overall_price.to_f %>,-</p>
+    <p>Total price is &euro;<span class="overall-price-display">calculating...</span></p>
 
     <div class="form-actions">
-      <%= f.input :price ,as: :hidden, input_html: { value: @overall_price } %>
       <%= f.button :submit %>
     </div>
   <% end %>
@@ -28,6 +25,7 @@
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
+      var pricePerDay = <%= @motorcycle.price %>
       $('input[name="daterange"]').daterangepicker({
         isInvalidDate: function(date){
           var formatted = date.format('MM/DD/YYYY');
@@ -40,6 +38,17 @@
           return noDays.indexOf(formatted) > -1;
         }
       });
+
+      function calculateGrandTotal(){
+        var dates = $('#reservation_dates').val().split(" - ");;
+        var startingDate = new Date(dates[0]);
+        var endingDate = new Date(dates[1]);
+        var days = Math.round((endingDate - startingDate) / (1000*60*60*24));
+        var total = days * pricePerDay;
+        $('.overall-price-display').html(total);
+      }
+      calculateGrandTotal();
+      $('#reservation_dates').on('change', function(){calculateGrandTotal();});
     });
   </script>
 <% end %>

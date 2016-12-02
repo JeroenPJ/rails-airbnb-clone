@@ -5,7 +5,6 @@ class MotorcyclesController < ApplicationController
   before_action :set_motorcycle, only: [:show]
 
   def index
-
     @available_motorcycles = []
     @location = params[:location]
     @date = params[:daterange].split(" - ").map {|date| Date.strptime(date,"%m/%d/%Y")}
@@ -29,15 +28,11 @@ class MotorcyclesController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    if params[:starting_date] && params[:ending_date]
-      @starting_date = Date.strptime(params[:starting_date],"%Y-%m-%d")
-      @ending_date = Date.strptime(params[:ending_date],"%Y-%m-%d")
+    if params[:daterange]
+      @daterange = params[:daterange]
     else
-      @starting_date = Date.today
-      @ending_date = Date.today
+      @daterange = "#{Date.today} - #{Date.today + 1}"
     end
-
-    @overall_price = @motorcycle.price.to_f * (@ending_date - @starting_date).to_f
   end
 
   def new

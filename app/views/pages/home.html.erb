@@ -15,9 +15,9 @@
     <div class="col-xs-12">
       <form action="search" class="search-form form-inline" method="get">
         <div id="locationField" class="border-radius-left">
-          <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text"></input>
+          <input id="autocomplete" name="location" placeholder="Location" class="input-lg form-control border-radius-left" onFocus="geolocate()" type="text" value="<%= params[:location] %>"></input>
         </div>
-        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker" value="<%= params[:location] %>">
+        <input id="daterange" type="text" name="daterange" placeholder="Renting period" class="input-lg form-control datepicker" value="<%= params[:daterange] %>">
         <input id="search-submit" type="submit" value="Search" class="btn btn-primary btn-lg border-radius-right">
       </form>
     </div>
