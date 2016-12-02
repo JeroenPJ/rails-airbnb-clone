@@ -19,12 +19,12 @@ class MotorcyclesController < ApplicationController
       end
       @available_motorcycles << motorcycle unless overlaps
     end
+
     @hash = Gmaps4rails.build_markers(@motorcycles) do |motorcycle, marker|
       marker.lat motorcycle.lat
       marker.lng motorcycle.lng
       # marker.infowindow render_to_string(partial: "/motorcycles/map_box", locals: { motorcycle: motorcycle })
     end
-
   end
 
   def show
