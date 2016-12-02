@@ -7,6 +7,13 @@ body {
   padding-top: 70px;
 }
 
+h1 {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-size: 30px;
+  color: #444;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
 h2 {
   font-family: 'Montserrat', 'Raleway', sans-serif;
   text-transform: uppercase;
@@ -15,10 +22,24 @@ h2 {
   color: #444;
 }
 
+h4 {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.2;
+  font-size: 14px;
+  color: #777;
+}
+
+h5 {
+  font-family: 'Montserrat', 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #bbb;
+}
+
 p {
   font-family: 'Roboto', sans-serif;
   line-height: 1.4;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: lighter;
 }
 
@@ -34,8 +55,14 @@ p {
   padding: 0;
 }
 
+.horizontal-padding-small {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .vertical-margin-small {
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .text-subtle {
