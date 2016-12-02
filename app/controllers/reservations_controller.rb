@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.starting_date = @daterange[0]
     @reservation.ending_date = @daterange[1]
-    @reservation.overall_price =params[:reservation][:price]
+    @reservation.overall_price = @motorcycle.price * (@daterange[1] - @daterange[0])
     @reservation.save
     redirect_to profiles_path
   end

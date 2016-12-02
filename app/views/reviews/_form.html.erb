@@ -1,6 +1,6 @@
 <%= simple_form_for @review, url: reservation_reviews_path do |f| %>
   <p>Review information</p>
-  <%= f.input :content, label: "Content" %>
-  <%= f.input :rating, label: "Rating" %>
+  <%= f.input :content, label: "Content", placeholder: "Please tell us about your experience" %>
+  <%= f.input :rating, label: "Rating", placeholder: "Please enter a rating from 1-5" %>
 <%= f.button :submit %>
 <% end %>

@@ -1,5 +1,6 @@
 <div class="card-motorcycle-wrapper">
-  <%= link_to motorcycle_path(motorcycle, starting_date: @date[0], ending_date: @date[1] ) do %>
+  <%###= link_to motorcycle_path(motorcycle, starting_date: @date[0], ending_date: @date[1] ) do %>
+  <%= link_to motorcycle_path(motorcycle, daterange: params[:daterange] ) do %>
     <div class="card-motorcycle">
       <% if motorcycle.photos.empty? %>
         <%= cl_image_tag("default-img_hn54at", width: 750, height: 500, crop: :fill) %>
@@ -10,7 +11,7 @@
       <!-- Owner avatar -->
       <%= link_to profiles_path(motorcycle.user) do %>
         <div class="avatar-container">
-          <%= cl_image_tag("default-img_hn54at", width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(motorcycle.user.facebook_picture_url, width: 50, height: 50, crop: :fill) %>
         </div>
       <% end %>
 

@@ -8,44 +8,48 @@
     <div class='container'>
       <h2>My upcoming reservations</h2>
       <div class="row">
-
         <% current_user.reservations.each do |reservation| %>
           <% if reservation.ending_date > Date.today %>
-          <div class="col-xs-12 col-md-4">
-            <%= render 'motorcycles/card_motorcycle', motorcycle: reservation.motorcycle %>
-            <p><%= reservation.starting_date %> - <%= reservation.ending_date %></p>
-              <%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-          <%end%>
-        <% end%>
+            <div class="col-xs-12 col-md-4"  >
+              <% motorcycle = reservation.motorcycle %>
+              <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
+              <p><%= reservation.starting_date %> until <%= reservation.ending_date %></p>
+              <p>Total Price: €<%=reservation.overall_price%></p>
+              <p><%= "Contact the owner at 666 734 876"%></p>
+
+              <p><%= link_to 'Cancel Reservation', remove_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
 
     <div class='container'>
-<h2>My reservations history</h2>
+      <h2>My reservations history</h2>
       <div class="row">
-
         <% current_user.reservations.each do |reservation| %>
-          <% if reservation.ending_date < Date.today %>
-          <div class="col-xs-12 col-md-4"  >
-            <p><%= reservation.motorcycle.name %></p>
-            <p><%= reservation.starting_date %></p>
-            <p><%= reservation.ending_date %></p>
-            <% if reservation.review.nil? %>
-              <%= link_to 'Add Testimonial', new_reservation_review_path(reservation.id) %>
-            <% else %>
-              <%= link_to 'View your review', motorcycle_path(reservation.motorcycle) %>
-            <% end %>
-          </div>
-          <%end%>
+        <% if reservation.ending_date < Date.today %>
+        <div class="col-xs-12 col-md-4"  >
+          <% motorcycle = reservation.motorcycle %>
+          <%= render 'motorcycles/card_motorcycle_for_profile', motorcycle: motorcycle %>
+          <%= reservation.starting_date %> until <%= reservation.ending_date %>
+          <% if reservation.review.nil? %>
+          <p><%= link_to 'Add Testimonial', new_reservation_review_path(reservation.id) %></p>
+          <% else %>
+          <p><%= link_to 'View your review', motorcycle_path(reservation.motorcycle) %></p>
+          <% end %>
+        </div>
+        <%end%>
         <% end%>
       </div>
     </div>
 
     <h2>Motorcycles I have for rent</h2>
     <div class='container'>
-
+      <div>
+        <%= link_to "Add new motorcycle", new_motorcycle_path %>
+      </div>
       <div class="row">
         <% current_user.motorcycles.each do |motorcycle| %>
         <div class="col-xs-12 col-md-4"  >
@@ -57,9 +61,6 @@
     </div>
 
 
-    <div>
-      <%= link_to "Add new motorcycle", new_motorcycle_path %>
-    </div>
 
   </div>
 </div>
